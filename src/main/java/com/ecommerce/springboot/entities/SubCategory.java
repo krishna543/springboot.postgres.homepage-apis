@@ -66,6 +66,7 @@ public class SubCategory extends Audit{
 	public void setActiveFlag(boolean activeFlag) {
 		ActiveFlag = activeFlag;
 	}
+	@JsonIgnore
 	public Category getCategory() {
 		return category;
 	}
