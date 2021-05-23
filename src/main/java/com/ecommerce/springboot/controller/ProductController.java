@@ -31,8 +31,15 @@ public class ProductController {
 	
 	@Autowired
 	private SubCategoryRepository subcategoryRepository;
+
 	
 	//get all Products
+	@GetMapping("products")
+	public List<Products> getAllProducts() {
+		return this.productsRepository.findAll();
+	}
+	
+	//get all Products by SubCategory
 	@GetMapping("subcategory/{subcategoryId}/products")
 	public List<Products> getAllProductsbySubCategory(@PathVariable(value = "subcategoryId") Long subcategoryId) {
 		return this.productsRepository.findBysubCategoryId(subcategoryId);

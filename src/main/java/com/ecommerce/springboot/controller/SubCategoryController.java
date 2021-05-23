@@ -29,10 +29,15 @@ public class SubCategoryController {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
+	//get all Sub categories
+	@GetMapping("subcategories")
+	public List<SubCategory> getAllSubCategories() {
+		return this.subcategoryRepository.findAll();
+	}
 		
-	//get all sub categories
+	//get all sub categories by Category Id
 	@GetMapping("category/{category}/subcategory")
-	public List<SubCategory> getallsubCategory(@PathVariable(value = "category") Long category) {
+	public List<SubCategory> getallsubCategorybyCategoryId(@PathVariable(value = "category") Long category) {
 		return this.subcategoryRepository.findBycategoryId(category);
 	}
 	
